@@ -28,7 +28,6 @@ class ViewController: UIViewController{
             button[i].layer.borderWidth = 2.0
             button[i].layer.borderColor = UIColor.black.cgColor
         }
-        judgeLabel.textColor = UIColor.black
         judgeLabel.text = ""
         playerLabel.text = "Player: ○"
         
@@ -37,7 +36,7 @@ class ViewController: UIViewController{
         addBannerViewToView(bannerView)
         bannerView.rootViewController = self
         // Set the ad unit ID to your own ad unit ID here.
-        //bannerView.adUnitID = "ca-app-pub-4013798308034554/2995384805"
+        bannerView.adUnitID = "ca-app-pub-4013798308034554/2995384805"
         bannerView.load(GADRequest())
     }
     
@@ -170,14 +169,17 @@ class ViewController: UIViewController{
         //勝者決定
         if winer != nil {
             if winer == 0 {
-                judgeLabel.text = "WIN ○ !"
+                judgeLabel.textColor = UIColor.red
+                judgeLabel.text = "Winner ○"
                 //音
                 AudioServicesPlaySystemSound(1022)
             }else if winer == 1 {
-                judgeLabel.text = "WIN × !"
+                judgeLabel.textColor = UIColor.red
+                judgeLabel.text = "Winner ×"
                 //音
                 AudioServicesPlaySystemSound(1022)
             }else if winer == -1 {
+                judgeLabel.textColor = UIColor.black
                 judgeLabel.text = "Draw"
             }
 
